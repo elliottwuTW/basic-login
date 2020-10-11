@@ -19,15 +19,22 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // routes
 app.get('/', (req, res) => {
+  const user = req.query.user
+  if (user) {
+    res.render('index', { user })
+  } else {
+    res.redirect('/login') // redirect to login page by default
+  }
+})
+app.get('/login', (req, res) => {
   res.render('login')
 })
-
-app.post('/', (req, res) => {
+app.post('/login', (req, res) => {
   const { account, password } = req.body
 
   const user = checkLogin(account, password)
   if (user) {
-    res.render('index', { user })
+    res.redirect(`/?user=${user.firstName}`)
   } else {
     res.render('login', { loginFail: true })
   }
