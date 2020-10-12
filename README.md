@@ -40,4 +40,4 @@ Elliott Wu [elliottwuTW](https://github.com/elliottwuTW)
 - [1.1.0](https://github.com/elliottwuTW/basic-login/commit/29d00d04fa52f90f767ca3697517082f90be8fff) : 保持登入狀態
 - [1.2.0](https://github.com/elliottwuTW/basic-login/commit/d9c644ac970da8f135f20092c60ce4298dd83cdf) : 使用 cookie 保持登入
 - [1.3.0](https://github.com/elliottwuTW/basic-login/commit/c9a061334b24e6daff98c622e2e42a0a03862b35) : 引入 cookie-parser 套件
-- [1.4.0]() : 移除 cookie-parser，引入 express-session
+- [1.4.0](https://github.com/elliottwuTW/basic-login/commit/6cc64f33da0a386bc8030235549cd3c09a90cdda) : 移除 cookie-parser，引入 express-session
