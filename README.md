@@ -27,10 +27,16 @@ npm run dev
 ### Environment
 - Node.js : 14.4.0
 - express : 4.17.1
+- cookie-parser : 1.4.5
 
 ### App Info
 #### Author
 Elliott Wu [elliottwuTW](https://github.com/elliottwuTW)
 
 #### Version
-1.0.0
+1.3.0
+
+- [1.0.0](https://github.com/elliottwuTW/basic-login/commit/d0495aec41837326e8aeeff38b30a72f1c1a6beb) : 帳密檢查
+- [1.1.0](https://github.com/elliottwuTW/basic-login/commit/29d00d04fa52f90f767ca3697517082f90be8fff) : 保持登入狀態
+- [1.2.0](https://github.com/elliottwuTW/basic-login/commit/d9c644ac970da8f135f20092c60ce4298dd83cdf) : 使用 cookie 保持登入
+- [1.3.0]() : 引入 cookie-parser 套件
