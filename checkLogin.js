@@ -23,7 +23,7 @@ const users = [
   {
     firstName: 'Nick',
     email: 'nick@shield.com',
-    password: 'password'
+    password: 'test'
   }
 ]
 

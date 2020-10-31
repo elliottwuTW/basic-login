@@ -31,33 +31,36 @@ const sessionOptions = {
 }
 app.use(session(sessionOptions))
 
-// 路由
-// decide whether to go to personal or login page
-app.get('/', (req, res) => {
-  // console.log('req.session: ', req.session)
-  // console.log('req.session.name: ', req.session.name)
-
-  const session = req.session // access session data
-  if (session.name) {
-    res.render('index', { user: session.name })
-  } else {
-    res.redirect('/login') // redirect to login page by default
+// check if user is already logged in
+const requireLogin = (req, res, next) => {
+  if (!req.session.name) {
+    return res.redirect('/login')
   }
+  return next()
+}
+
+// check if user exists
+const checkUser = (req, res, next) => {
+  const { account, password } = req.body
+  const user = checkLogin(account, password)
+  if (!user) {
+    return res.render('login', { loginFail: true })
+  }
+  req.session.name = user.firstName
+  return next()
+}
+
+// main page
+app.get('/', requireLogin, (req, res) => {
+  res.render('index', { user: req.session.name })
 })
 // login page
 app.get('/login', (req, res) => {
   res.render('login')
 })
 // check the login information
-app.post('/login', (req, res) => {
-  const { account, password } = req.body
-  const user = checkLogin(account, password)
-  if (user) {
-    req.session.name = user.firstName // add session data
-    res.redirect('/')
-  } else {
-    res.render('login', { loginFail: true })
-  }
+app.post('/login', checkUser, (req, res) => {
+  res.redirect('/')
 })
 // log out
 app.post('/logout', (req, res) => {
